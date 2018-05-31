@@ -4,12 +4,14 @@ import pkgutil
 
 class ExampleSpider(scrapy.Spider):
     name = 'example'
+    start_urls = getUrls()
+    '''
     def start_requests(self):
         urls = self.getUrls()
         self.log(urls)
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
-    
+    '''
     def getUrls(self):
         addurls = []
         data = pkgutil.get_data("twitter", "resources/links.txt")
